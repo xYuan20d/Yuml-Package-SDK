@@ -7,9 +7,10 @@ class YLoad:
         self.raw = raw
 
 class YMainBlock:
-    def __init__(self, data, raw):
+    def __init__(self, data, hook, raw):
         self.data = data
         self.raw = raw
+        self.hook = hook
 
 class YAddWidgetAttribute(ABC):
     def __init__(self, raw, widget_type, widget):
@@ -55,3 +56,8 @@ class YWidget:
         :return: False或不返回
         """
         return False
+
+class YExport:
+    def __init__(self, raw):
+        self.module_id = None
+        self.modules = {}
